@@ -4,7 +4,7 @@ object Taz: Car {
     /**
      * Номерной знак
      */
-    override val plates: Car.Plates
+    override val plates: Car.CarPlates
         get() = throw NotImplementedError("Номера сняты")
 
     /**
@@ -36,4 +36,9 @@ object Taz: Car {
     override fun wheelToLeft(degrees: Int) {
         throw NotImplementedError("Руля нет")
     }
+
+    // Горловина
+    override val tankMouth: TankMouth
+        get() = throw NotImplementedError("Топливной системы нет")
+
 }

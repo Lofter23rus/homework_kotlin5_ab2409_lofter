@@ -7,7 +7,8 @@ interface Car : CarInput {
     /**
      * Номерной знак
      */
-    val plates: Plates
+    // в задании именно CarPlates (никак не Plates)
+    val plates: CarPlates
 
     /**
      * Цвет машины
@@ -27,5 +28,8 @@ interface Car : CarInput {
     /**
      * Внутренний статический класс - номерой знак
      */
-    data class Plates(val number: String, val region: Int)
+    data class CarPlates(val number: String, val region: Int)
+
+    // горловина бака
+    val tankMouth: TankMouth
 }

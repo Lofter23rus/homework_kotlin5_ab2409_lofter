@@ -7,14 +7,14 @@ interface CarFactory {
     /**
      * Выпусти машину
      */
-    fun buildCar(builder: CarBuilder, plates: Car.Plates): Car
+    fun buildCar(builder: CarBuilder, plates: Car.CarPlates): Car
 }
 
 /**
  * Автозавод в Тольятти (он у нас один такой)
  */
 object Togliatti : CarFactory {
-    private fun buildVaz2107(plates: Car.Plates): Car {
+    private fun buildVaz2107(plates: Car.CarPlates): Car {
         println("Запил ${Vaz2107.MODEL} в Тольятти...")
         val vaz = Vaz2107.build(plates)
         println("Проверяем тачку...")
@@ -23,7 +23,7 @@ object Togliatti : CarFactory {
         return vaz
     }
 
-    private fun buildVaz2108(plates: Car.Plates): Car {
+    private fun buildVaz2108(plates: Car.CarPlates): Car {
         println("Запил ${Vaz2108.MODEL} в Тольятти...")
         val vaz = Vaz2108.build(plates)
         println("Сход-развал...")
@@ -32,7 +32,7 @@ object Togliatti : CarFactory {
         return vaz
     }
 
-    override fun buildCar(builder: CarBuilder, plates: Car.Plates): Car {
+    override fun buildCar(builder: CarBuilder, plates: Car.CarPlates): Car {
         return when (builder) {
             is Vaz2107.Companion -> return buildVaz2107(plates)
             is Vaz2108.Companion -> return buildVaz2108(plates)
